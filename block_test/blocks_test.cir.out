@@ -1,0 +1,57 @@
+* /home/subham109/spice/esim/blocks_test/blocks_test.cir
+
+.include andg.sub
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__pnp.model.spice"
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__diode_pw2nd_11v0.model.spice"
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__diode_pd2nw_11v0.model.spice"
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__r+c.model.spice"
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__inductors.model.spice"
+.lib "/usr/share/local/sky130_fd_pr/models/sky130.lib.spice" tt
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__linear.model.spice"
+* u3  net-_u1-pad1_ net-_u1-pad2_ net-_u3-pad3_ orgate
+* u1  net-_u1-pad1_ net-_u1-pad2_ gnd net-_u1-pad4_ net-_u1-pad5_ fa
+* u4  net-_u1-pad1_ net-_u1-pad2_ net-_u4-pad3_ xor_gate
+* u5  a b net-_u1-pad1_ net-_u1-pad2_ adc_bridge_2
+v1  a gnd pulse(0 1.8 0 0.001n 0.001n 1n 2n)
+v2  b gnd pulse(0 1.8 0 0.002n 0.002n 2n 3n)
+* u6  net-_u1-pad4_ net-_u1-pad5_ sum carry dac_bridge_2
+* u8  net-_u3-pad3_ or_out dac_bridge_1
+* u9  net-_u4-pad3_ xor_out dac_bridge_1
+x1 a b vdd and_out andg
+v3 vdd gnd  dc 1.8
+xsc2 sum gnd gnd sky130_fd_pr__res_generic_pd 
+xsc5 carry gnd ? sky130_fd_pr__res_generic_pd 
+xsc1 and_out net-_sc1-pad2_ net-_sc1-pad2_ sky130_fd_pr__res_generic_pd 
+xsc3 or_out gnd gnd sky130_fd_pr__res_generic_pd 
+xsc4 xor_out gnd gnd sky130_fd_pr__res_generic_pd 
+* s c m o d e
+a1 [net-_u1-pad1_ ] [net-_u1-pad2_ ] [net-_u3-pad3_ ] u3
+a2 [net-_u1-pad1_ ] [net-_u1-pad2_ ] [gnd ] [net-_u1-pad4_ ] [net-_u1-pad5_ ] u1
+a3 [net-_u1-pad1_ ] [net-_u1-pad2_ ] [net-_u4-pad3_ ] u4
+a4 [a b ] [net-_u1-pad1_ net-_u1-pad2_ ] u5
+a5 [net-_u1-pad4_ net-_u1-pad5_ ] [sum carry ] u6
+a6 [net-_u3-pad3_ ] [or_out ] u8
+a7 [net-_u4-pad3_ ] [xor_out ] u9
+* Schematic Name:                             orgate, NgSpice Name: orgate
+.model u3 orgate(rise_delay=0.0001n fall_delay=0.0001n input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             fa, NgSpice Name: fa
+.model u1 fa(rise_delay=0.0001n fall_delay=0.0001n input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             xor_gate, NgSpice Name: xor_gate
+.model u4 xor_gate(rise_delay=0.0001n fall_delay=0.0001n input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             adc_bridge_2, NgSpice Name: adc_bridge
+.model u5 adc_bridge(in_low=0 in_high=1.8 rise_delay=0.0001n fall_delay=0.0001n ) 
+* Schematic Name:                             dac_bridge_2, NgSpice Name: dac_bridge
+.model u6 dac_bridge(out_low=0 out_high=1.8 out_undef=0.18 input_load=1.0e-12 t_rise=0.0001n t_fall=0.0001n ) 
+* Schematic Name:                             dac_bridge_1, NgSpice Name: dac_bridge
+.model u8 dac_bridge(out_low=0 out_high=1.8 out_undef=0.18 input_load=1.0e-12 t_rise=0.0001n t_fall=0.0001n ) 
+* Schematic Name:                             dac_bridge_1, NgSpice Name: dac_bridge
+.model u9 dac_bridge(out_low=0 out_high=1.8 out_undef=0.18 input_load=1.0e-12 t_rise=0.0001n t_fall=0.0001n ) 
+.tran 0.001e-09 10e-09 0e-09
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
