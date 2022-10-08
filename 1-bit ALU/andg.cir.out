@@ -1,0 +1,18 @@
+* /home/subham109/downloads/esim-2.3/library/subcircuitlibrary/andg/andg.cir
+
+xsc2 net-_sc1-pad1_ /a net-_sc2-pad3_ net-_sc2-pad3_ sky130_fd_pr__nfet_01v8 w=1 l=0.15
+xsc1 net-_sc1-pad1_ /a /vdd /vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+xsc4 net-_sc1-pad1_ /b /vdd /vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+xsc3 net-_sc2-pad3_ /b gnd gnd sky130_fd_pr__nfet_01v8 w=1 l=0.15
+* u1  /a /b /vdd /y port
+xsc5 /y net-_sc1-pad1_ /vdd /vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+xsc6 /y net-_sc1-pad1_ gnd gnd sky130_fd_pr__nfet_01v8 w=1 l=0.15
+.tran 0e-00 0e-00 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end

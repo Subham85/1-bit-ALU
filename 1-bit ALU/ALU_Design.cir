@@ -1,1 +1,29 @@
+* /home/subham109/spice/esim/ALU_Design/ALU_Design.cir
 
+* EESchema Netlist Version 1.1 (Spice format) creation date: Fri 07 Oct 2022 10:43:09 PM PDT
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+U2  Net-_U1-Pad1_ Net-_U1-Pad2_ /y2 orgate		
+U3  Net-_U1-Pad1_ Net-_U1-Pad2_ /y3 xor_gate		
+U4  A B Cin Net-_U1-Pad1_ Net-_U1-Pad2_ Net-_U1-Pad3_ adc_bridge_3		
+U7  /c0 Cout dac_bridge_1		
+U6  /out /y1 adc_bridge_1		
+U8  s0 s1 Net-_U5-Pad6_ Net-_U5-Pad5_ adc_bridge_2		
+U9  Net-_U5-Pad7_ Y dac_bridge_1		
+v6  VDD GND DC		
+scmode1  SKY130mode		
+SC2  GND Y GND sky130_fd_pr__res_generic_pd		
+SC1  GND Cout GND sky130_fd_pr__res_generic_pd		
+v5  Cin GND DC		
+U1  Net-_U1-Pad1_ Net-_U1-Pad2_ Net-_U1-Pad3_ /y0 /c0 fa		
+X1  A B VDD /out andg		
+U5  /y0 /y1 /y2 /y3 Net-_U5-Pad5_ Net-_U5-Pad6_ Net-_U5-Pad7_ mux41		
+v1  A GND pulse		
+v2  B GND pulse		
+v3  s1 GND pulse		
+v4  s0 GND pulse		
+
+.end

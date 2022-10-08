@@ -1,0 +1,29 @@
+* /home/subham109/downloads/esim-2.3/library/subcircuitlibraryand_gateand_gate.cir
+
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__diode_pw2nd_11v0.model.spice"
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__r+c.model.spice"
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__linear.model.spice"
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__diode_pd2nw_11v0.model.spice"
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__pnp.model.spice"
+.lib "/usr/share/local/sky130_fd_pr/models/sky130.lib.spice" tt
+.include "/usr/share/local/sky130_fd_pr/models/sky130_fd_pr__model__inductors.model.spice"
+xsc1 net-_sc1-pad1_ a vdd vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+xsc4 net-_sc1-pad1_ b vdd vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+xsc2 net-_sc1-pad1_ a net-_sc2-pad3_ net-_sc2-pad3_ sky130_fd_pr__nfet_01v8 w=1 l=0.15
+xsc3 net-_sc2-pad3_ b gnd gnd sky130_fd_pr__nfet_01v8 w=1 l=0.15
+xsc5 y net-_sc1-pad1_ vdd vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+xsc6 y net-_sc1-pad1_ gnd gnd sky130_fd_pr__nfet_01v8 w=1 l=0.15
+* u1  a b vdd y port
+v1  a gnd pulse(0 1.8 0 0.01n 0.01n 1n 2n)
+v2  b gnd pulse(0 1.8 0 0.02n 0.02n 2n 4n)
+v3 vdd gnd  dc 1.8
+* s c m o d e
+.tran 0.001e-09 10e-09 0e-09
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
