@@ -114,7 +114,7 @@ https://www.veripool.org/verilator/
  
  ![blocks_test](https://user-images.githubusercontent.com/64309149/194708167-dc99f15b-0427-4c04-8512-aba58dc19a79.png)
  
-                                            Fig. SPICE Output of Ngveri Subcircuits
+                                           Fig. SPICE Output of Ngveri Subcircuits
  
 
 ## References
