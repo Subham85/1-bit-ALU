@@ -32,3 +32,13 @@ as the output. It is capable of perfoming addition,
 AND, OR and XOR operation. The design
 comprises of a full-adder, AND gate, OR gate and
 XOR gate connected to the 4x1 multiplexer.
+
+The table presents the operation of the ALU based
+on the selection line inputs.
+
+| S1 | S0 | Operation |  
+|----|----|-----------|
+|0   |0   |A+B |
+|0   |1   |A.B |
+|1   |0   |A|B |
+|1   |1   |A^B |
