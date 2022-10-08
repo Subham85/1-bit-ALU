@@ -2,6 +2,16 @@
 
 # 1-bit ALU 
 
+- [Abstract](#abstract)
+- [Reference Circuit Diagram](#reference-circuit-diagram)
+- [Reference Outputs](#reference-outputs)
+- [Circuit Details](#circuit-details)
+- [Software Used](#software-used)
+- [eSim Schematics](#esim-schematics)
+- [Makerchip Outputs](#makerchip-outputs)
+- [NgSpice Outputs](#ngspice-outputs)
+- [References](#references)
+
 ## Abstract
 A basic design of a 1-bit ALU has been proposed in
 this report. The circuit is capable of perfoming
