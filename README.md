@@ -117,7 +117,8 @@ https://www.veripool.org/verilator/
                                            Fig. SPICE Output of Ngveri Subcircuits
 
 ![final_out](https://user-images.githubusercontent.com/64309149/194722126-1ca14b3c-7626-4247-b6cb-b720e1985d6e.png)
-                                           Fig. Final Output
+                                           
+                                                      Fig. Final Output
 
 ## References
  1. Shukla, Raj Lakshmi, and Rajesh Mehra. 
