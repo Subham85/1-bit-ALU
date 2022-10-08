@@ -11,7 +11,6 @@ intended for a mixed-signal application.
 
 ## Reference Circuit Diagram
 ![IMG_20220927_105836__01](https://user-images.githubusercontent.com/64309149/194705920-53f53e00-cf06-42f7-a1e9-9219dd908e40.jpg)
-
 ## Reference Outputs
 ![IMG_20220927_105924__01](https://user-images.githubusercontent.com/64309149/194705970-b5934973-bdaf-4550-994a-5ca717990e7d.jpg)
 
@@ -60,3 +59,65 @@ It is an Online Web Browser IDE for Verilog/System-verilog/TL-Verilog Simulation
 ### Verilator
 It is a tool which converts Verilog code to C++ objects. Refer:
 https://www.veripool.org/verilator/
+
+## eSim Schematics
+
+![andg](https://user-images.githubusercontent.com/64309149/194706729-8c60f6cb-43b7-4e1b-9482-052562f8ea13.png)
+                                        
+                                            Fig. AND Gate Subcircuit
+                                      
+
+![final_circuit](https://user-images.githubusercontent.com/64309149/194706920-19b9d57e-f375-45f6-b93d-b9888b151fc7.png)
+                                        
+                                             Fig. 1-bit ALU Circuit 
+## Makerchip Outputs
+   
+ ![or](https://user-images.githubusercontent.com/64309149/194708018-ff604ea7-b17b-449a-90cc-b0aadd316d2a.png)
+ 
+ 
+ 
+ 
+ 
+ 
+ ![xor](https://user-images.githubusercontent.com/64309149/194708022-77ce6699-4e1d-469a-832a-e5044a5ef962.png)
+ 
+ 
+ 
+ 
+ 
+ 
+ ![fa](https://user-images.githubusercontent.com/64309149/194707990-29a177b8-5bcb-4003-9a1b-17a96b31920f.png)
+ 
+ 
+ 
+ 
+ 
+ 
+ ![mux41](https://user-images.githubusercontent.com/64309149/194708017-44d81b71-4a49-46f9-989d-bfae2b56805c.png)
+ 
+ 
+ # NgSpice Outputs
+  
+ ![and_out](https://user-images.githubusercontent.com/64309149/194708137-4e339330-f3ab-4c13-a1a5-8badec2e3891.jpg)
+ 
+                                              Fig. AND Subcircuit Output
+ 
+ ![blocks_test](https://user-images.githubusercontent.com/64309149/194708167-dc99f15b-0427-4c04-8512-aba58dc19a79.png)
+ 
+                                            Fig. SPICE Output of Ngveri Subcircuits
+ 
+
+## References
+ 1. Shukla, Raj Lakshmi, and Rajesh Mehra. 
+"Design analysis and simulation of 1 bit arithmetic 
+logic unit on different foundaries." Int. J. Sci. Eng 2
+(2014): 28-29. 
+
+2. Rabaey, Jan M., Anantha P. Chandrakasan, and 
+Borivoje Nikolic. Digital integrated circuits. Vol. 2. Englewood Cliffs: Prentice hall, 2002.
+ 
+ 
+
+
+                                     
+                                      
